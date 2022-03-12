@@ -116,13 +116,13 @@ function checkMatch(){
     const optionOneId = cardsChosenIds[0]
     const optionTwoId = cardsChosenIds[1]
 
-    if(optionOneId === optionTwoId){
+    if(optionOneId == optionTwoId){
         cards[optionOneId].setAttribute('src', 'images/blank.png')
         cards[optionTwoId].setAttribute('src', 'images/blank.png')
         alert('You have clicked the same image!')
     }
 
-    else if (cardChosen[0] === cardChosen[1]){
+     else if (cardChosen[0] === cardChosen[1]){
         alert('You found a match!')
         cards[optionOneId].setAttribute('src', 'images/white.png')
         cards[optionTwoId].setAttribute('src', 'images/white.png')
@@ -137,7 +137,7 @@ function checkMatch(){
 
     }
 
-    // clearing the arrays 
+// clearing the arrays 
     cardsChosen = []
     cardsChosenIds = []
     displayResult.textContent = cardsWon.length
@@ -146,7 +146,8 @@ function checkMatch(){
         displayResult.textContent = 'Congratulations, you found them all!'
     }
 
-}
+} 
+
 
 function flipCard() {
     // this keyword allows us to interact with whatever element we clicked and get its id 
