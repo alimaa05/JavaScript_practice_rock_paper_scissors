@@ -5,63 +5,63 @@ const cardArray = [
 
 // creating several objects within the array 
     {
-        name: 'dolphin',
-        img: 'images/dophin.jpeg'
+        name: 'cheeseburger',
+        img: 'images/cheeseburger.png'
     },
 
     {
-        name: 'elephant',
-        img: 'images/elephant.png'
+        name: 'fries',
+        img: 'images/fries.png'
     },
 
     {
-        name: 'giraff',
-        img: 'images/giraff.png'
+        name: 'hotdog',
+        img: 'images/hotdog.png'
     },
 
     {
-        name: 'lion',
-        img: 'images/lion.png'
+        name: 'ice-cream',
+        img: 'images/ice-cream.png'
     },
 
     {
-        name: 'monkey',
-        img: 'images/monkey.png'
+        name: 'milkshake',
+        img: 'images/milkshake.png'
     },
 
     {
-        name: 'tiger',
-        img: 'images/tiger.png'
+        name: 'pizza',
+        img: 'images/pizza.png'
     },
 // need 12 cards so need another set of them 
     {
-        name: 'dolphin',
-        img: 'images/dophin.jpeg'
+    name: 'cheeseburger',
+    img: 'images/cheeseburger.png'
     },
 
     {
-        name: 'elephant',
-        img: 'images/elephant.png'
+    name: 'fries',
+    img: 'images/fries.png'
     },
 
     {
-        name: 'giraff',
-        img: 'images/giraff.png'
+    name: 'hotdog',
+    img: 'images/hotdog.png'
     },
 
     {
-        name: 'lion',
-        img: 'images/lion.png'
+    name: 'ice-cream',
+    img: 'images/ice-cream.png'
     },
 
     {
-        name: 'monkey',
-        img: 'images/monkey.png'
+    name: 'milkshake',
+    img: 'images/milkshake.png'
     },
 
     {
-        name: 'tiger',
-        img: 'images/tiger.png'
+    name: 'pizza',
+    img: 'images/pizza.png'
     },
 
 ]
@@ -79,12 +79,13 @@ cardArray.sort(()=> 0.5 - Math.random())
 // looking though DOM and looking for this id element using the queryselector method 
 // give this a variable name
 const gridDisplay = document.querySelector('#grid')
+const displayResult = document.querySelector('#score')
 
 let cardChosen = []
 
 let cardsChosenIds = []
 
-const cardsWon = []
+let cardsWon = []
 
 
 // create function 
@@ -96,7 +97,7 @@ function createBoard() {
         const card = document.createElement('img');
         // adding one of the images to this card variable 
         // set the src attribute to our image
-        card.setAttribute('src', 'images/cover.jpeg')
+        card.setAttribute('src', 'images/blank.png')
         // giving each card a unique id 
         card.setAttribute('data-id', i)
         // add js method that allows us to listen out for events 
@@ -107,35 +108,48 @@ function createBoard() {
     }
 
 }
-
 createBoard();
 
 function checkMatch(){
     // looking for every image within the entire document and storing it in variable
     const cards = document.querySelectorAll('img')
+    const optionOneId = cardsChosenIds[0]
+    const optionTwoId = cardsChosenIds[1]
 
-    console.log('check for a match');
+    if(optionOneId == optionTwoId){
+        cards[optionOneId].setAttribute('src', 'images/blank.png')
+        cards[optionTwoId].setAttribute('src', 'images/blank.png')
+        alert('You have clicked the same image!')
+    }
 
-    if (cardChosen[0] == cardChosen[1]){
+    else if (cardChosen[0] === cardChosen[1]){
         alert('You found a match!')
-        cards[cardsChosenIds[0]].setAttribute('src', 'images/whitebackground.webp')
-        cards[cardsChosenIds[1]].setAttribute('src', 'images/whitebackground.webp')
-        cards[cardsChosenIds[0]].removeEventListener('click', flipCard)
-        cards[cardsChosenIds[1]].removeEventListener('click', flipCard)
+        cards[optionOneId].setAttribute('src', 'images/white.png')
+        cards[optionTwoId].setAttribute('src', 'images/white.png')
+        cards[optionOneId].removeEventListener('click', flipCard)
+        cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardChosen)
-
+    } else {
+        cards[optionOneId].setAttribute('src', 'images/blank.png')
+        cards[optionTwoId].setAttribute('src', 'images/blank.png')
+        alert('Sorry try again!')
 
     }
 
+    // clearing the arrays 
     cardsChosen = []
-
     cardsChosenIds = []
+    displayResult.textContent = cardsWon.length
+
+    if (cardsWon.length === cardArray.length/2){
+        displayResult.textContent = 'Congratulations, you found them all!'
+    }
 
 }
 
 function flipCard() {
     // this keyword allows us to interact with whatever element we clicked and get its id 
-    const cardId = this.getAttribute('data-id')
+    let cardId = this.getAttribute('data-id')
     cardChosen.push(cardArray[cardId].name);
     cardsChosenIds.push(cardId)
     this.setAttribute('src', cardArray[cardId].img)
@@ -145,6 +159,7 @@ function flipCard() {
         setTimeout(checkMatch, 500)
     }
 
+    
 }
 
 
