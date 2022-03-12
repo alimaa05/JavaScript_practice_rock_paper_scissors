@@ -1,0 +1,12 @@
+.memory-game{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#grid{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
