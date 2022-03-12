@@ -1,5 +1,6 @@
 
-// creating variable that takes an array 
+document.addEventListener('DOMContentLoaded', () => {
+    // creating variable that takes an array 
 // using this to create our grid with all these images within it
 const cardArray = [
 
@@ -71,7 +72,7 @@ const cardArray = [
 // get the array and use the 'sort' method to sort everything in the array randomly 
 // 'sort' works by comparing two values and then sorts through it 
 // use the 'Math.random( )' method 
-// 'math.random( )' returns a number between 0 and less than -1 
+// 'math.random( )' returns a number between 0 and less than 1 
 // checking if its either < or > 0.5 and will sort it based on that 
 
 cardArray.sort(()=> 0.5 - Math.random())
@@ -108,7 +109,6 @@ function createBoard() {
     }
 
 }
-createBoard();
 
 function checkMatch(){
     // looking for every image within the entire document and storing it in variable
@@ -116,7 +116,7 @@ function checkMatch(){
     const optionOneId = cardsChosenIds[0]
     const optionTwoId = cardsChosenIds[1]
 
-    if(optionOneId == optionTwoId){
+    if(optionOneId === optionTwoId){
         cards[optionOneId].setAttribute('src', 'images/blank.png')
         cards[optionTwoId].setAttribute('src', 'images/blank.png')
         alert('You have clicked the same image!')
@@ -133,6 +133,7 @@ function checkMatch(){
         cards[optionOneId].setAttribute('src', 'images/blank.png')
         cards[optionTwoId].setAttribute('src', 'images/blank.png')
         alert('Sorry try again!')
+        // flipCard();
 
     }
 
@@ -161,6 +162,13 @@ function flipCard() {
 
     
 }
+
+createBoard();
+
+
+})
+
+
 
 
 
