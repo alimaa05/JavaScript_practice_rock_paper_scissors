@@ -1,16 +1,7 @@
-/* .memory-game{
-    display: flex;
-    flex-wrap: wrap;
-} */
 
 
-/* #grid{
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    height: 300px;
-} */
 
+/* memory game grid */
 .grid{
     display: flex;
     flex-wrap: wrap;
