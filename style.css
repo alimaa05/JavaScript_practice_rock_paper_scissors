@@ -1,5 +1,46 @@
+/* main body background */
+body{
+    background-color: rgb(236, 209, 175);
+}
+
+/* main title */
+#title {
+    color: rgb(204, 160, 233);
+    font-family: 'Acme', sans-serif;
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: -10px;
+    text-decoration: underline;
+}
 
 
+button {
+    background: #11cdd4;
+    background-image: -webkit-linear-gradient(top, rgb(204, 160, 233), rgb(153, 120, 175));
+    background-image: -moz-linear-gradient(top, rgb(204, 160, 233), rgb(153, 120, 175));
+    background-image: -ms-linear-gradient(top, rgb(204, 160, 233), rgb(153, 120, 175));
+    background-image: -o-linear-gradient(top, rgb(204, 160, 233), rgb(153, 120, 175));
+    background-image: linear-gradient(to bottom, rgb(204, 160, 233), rgb(153, 120, 175));
+    border-style: none;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 15%;
+  }
+
+
+  button:hover {
+    background: #30e3cb;
+    background-image: -webkit-linear-gradient(top, rgb(204, 160, 233), rgb(201, 154, 231));
+    background-image: -moz-linear-gradient(top, rgb(204, 160, 233), rgb(201, 154, 231));
+    background-image: -ms-linear-gradient(top, rgb(204, 160, 233), rgb(201, 154, 231));
+    background-image: -o-linear-gradient(top, rgb(204, 160, 233), rgb(201, 154, 231));
+    background-image: linear-gradient(to bottom, rgb(204, 160, 233), rgb(201, 154, 231));
+    text-decoration: none;
+    margin: auto;
+  }
 
 /* memory game grid */
 .grid{
@@ -7,5 +48,8 @@
     flex-wrap: wrap;
     width: 400px;
     height: 300px;
+    border-color: rgb(204, 160, 233);
+    border-style: solid;
+    border-width: 10px;
 }
 

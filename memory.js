@@ -80,6 +80,22 @@ let cardsChosenId = []
 // storing the cards that match in this array so we can know exactly how many cards have been one 
 let cardsWon = []
 
+//reset grid
+// const resetButton = document.querySelector("#reset-button");
+// const returnImagesToGrid = (event) => {
+//     createBoard()
+// }
+// resetButton.addEventListener('click', returnImagesToGrid)
+
+function playWin() {
+    var audio = new Audio('sounds/retro-game-win.wav');
+    audio.play();
+  }
+
+  function playDraw() {
+    var audio = new Audio('sounds/retro-game-over.wav');
+    audio.play();
+  }
 
 // create function 
 // want to create an element for each item in our array 
@@ -120,6 +136,7 @@ function createBoard() {
       }
 // if the two cards you picked are different but the same 
     else if (cardsChosen[0] === cardsChosen[1]) {
+        playWin()
         alert('You found a match!')
          // going into the cards and pass though the cards chosen by their ids
          // if both the chosen cards are the same then we will change the background color to white
@@ -131,6 +148,7 @@ function createBoard() {
         cards[optionTwoId].removeEventListener('click', flipCard)
         // if they are a match we will add the chosen cards to the cards won array 
         cardsWon.push(cardsChosen)
+        
 
         // if the cards are not a match
     } else {
@@ -139,7 +157,9 @@ function createBoard() {
         cards[optionOneId].setAttribute('src', 'images/blank.png')
         cards[optionTwoId].setAttribute('src', 'images/blank.png')
         // want to give users an alert 
+        playDraw()
         alert('Sorry try again!')
+        
         // flipCard();
 
     }

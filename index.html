@@ -9,27 +9,35 @@
     <script defer src="app.js"></script>
     <script defer src="memory.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+    <h1 id="title">Classic Games</h1>
+    <h2>Choose a game!</h2>
     <section class="rock-paper-scissors">
-        <h1 id="rock-paper-scissors-title">Rock Paper Scissors</h1>
-        <article id="displays">
-            <h2>Computer Choice: <span id="computer-choice"></span></h2>
-            <h2>User Choice: <span id="user-choice"></span></h2>
-            <h2>Result: <span id="result"></span></h2>
-        </article>
+        <h2 id="rock-paper-scissors-title">Rock Paper Scissors</h1>
         <article id="buttons">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
         </article>
+        <article id="displays">
+            <h3>Computer Choice: <span id="computer-choice"></span></h3>
+            <h3>User Choice: <span id="user-choice"></span></h3>
+            <h3>Result: <span id="result"></span></h3>
+        </article>
     </section>
 
     <section class="memory-game">
-        <h1 id="memory-game-title">Memory Game</h1>
+        <h2 id="memory-game-title">Memory Game</h2>
         <h3>Score: <span id="score"></span></h3>
+        <!-- <button id="reset-button">New game</button> -->
 
         <div class="grid">
 
